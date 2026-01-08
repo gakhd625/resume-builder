@@ -26,59 +26,57 @@ export default function ProjectsForm({ data, onChange }: ProjectsFormProps) {
   };
 
   return (
-    <div className="border-b pb-6">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold text-gray-800">Projects</h2>
+    <div className="space-y-6">
+      <div className="flex justify-between items-center border-b border-white/10 pb-4">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 bg-brand-red rounded-sm flex items-center justify-center text-white font-bold">5</div>
+          <h2 className="text-xl font-bold text-white uppercase tracking-wider">Projects</h2>
+        </div>
         <button
           onClick={addProject}
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
+          className="px-4 py-2 bg-brand-red text-white rounded-sm hover:bg-red-700 text-xs font-bold transition-colors"
         >
-          Add More
+          ADD PROJECT
         </button>
       </div>
-      <div className="space-y-6">
+
+      <div className="space-y-8">
         {data.map((project) => (
-          <div key={project.id} className="border border-gray-200 rounded-lg p-4 bg-gray-50">
-            <div className="flex justify-between items-start mb-4">
-              <h3 className="font-medium text-gray-700">Project Entry</h3>
-              <button
-                onClick={() => removeProject(project.id)}
-                className="text-red-600 hover:text-red-800 text-sm"
-              >
-                Remove
-              </button>
-            </div>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Project Name *
+          <div key={project.id} className="relative bg-[#1A1A1A] border border-white/5 rounded-sm p-6 group">
+            <button
+              onClick={() => removeProject(project.id)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-brand-red transition-colors text-xs font-bold"
+            >
+              REMOVE
+            </button>
+
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest">
+                  Project Name
                 </label>
                 <input
                   type="text"
                   value={project.name}
                   onChange={(e) => updateProject(project.id, { name: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full bg-[#111111] border border-white/10 px-4 py-3 rounded-sm text-white focus:outline-none focus:border-brand-red transition-colors placeholder:text-gray-600"
                   placeholder="Safeplay - AI-Powered Chrome Extension"
                 />
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Description *
+              <div className="space-y-2">
+                <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest">
+                  Description
                 </label>
                 <textarea
                   value={project.description}
                   onChange={(e) => updateProject(project.id, { description: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  rows={3}
-                  placeholder="Describe your project..."
+                  className="w-full bg-[#111111] border border-white/10 px-4 py-3 rounded-sm text-white focus:outline-none focus:border-brand-red transition-colors placeholder:text-gray-600 min-h-[100px]"
+                  placeholder="Describe the technical challenges and outcomes..."
                 />
               </div>
             </div>
           </div>
         ))}
-        {data.length === 0 && (
-          <p className="text-gray-500 text-sm">No projects yet. Click "Add More" to add one.</p>
-        )}
       </div>
     </div>
   );

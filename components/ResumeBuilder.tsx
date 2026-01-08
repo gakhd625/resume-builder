@@ -77,17 +77,21 @@ export default function ResumeBuilder() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-background py-8">
       <div className="container mx-auto px-4">
-        <div className="mb-8 text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">Resume Builder</h1>
-          <p className="text-gray-600">Create your professional resume in minutes develop by <a href="https://www.linkedin.com/in/gerlie-ann-daga-as-326554305/" className="text-blue-600 underline">Gerlie D.</a></p>
+        <div className="mb-12 text-center">
+          <h1 className="text-4xl font-extrabold text-foreground mb-3 tracking-tight">
+            Professional <span className="text-brand-red">Resume</span> Builder
+          </h1>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Fill in your details below. Your professional resume will update in real-time on the right.
+          </p>
         </div>
 
-        <div className="flex gap-8 flex-col lg:flex-row">
+        <div className="flex gap-12 flex-col lg:flex-row">
           {/* Form Section */}
           <div className={`${showPreview ? 'hidden lg:block lg:w-1/2' : 'w-full lg:w-1/2'}`}>
-            <div className="bg-white rounded-lg shadow-lg p-6 space-y-8">
+            <div className="bg-[#111111] border border-white/5 rounded-xl shadow-2xl p-8 space-y-12">
               <PersonalDetailsForm
                 data={resumeData.personalDetails}
                 onChange={updatePersonalDetails}
@@ -137,19 +141,24 @@ export default function ResumeBuilder() {
 
           {/* Preview Section */}
           <div className={`${showPreview ? 'w-full lg:w-1/2' : 'hidden lg:block lg:w-1/2'}`}>
-            <div className="sticky top-8">
-              <div className="bg-white rounded-lg shadow-lg p-6 mb-4">
-                <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-2xl font-bold text-gray-800">Preview</h2>
+            <div className="sticky top-24">
+              <div className="bg-[#111111] border border-white/5 rounded-xl shadow-2xl p-6 mb-6">
+                <div className="flex justify-between items-center">
+                  <h2 className="text-xl font-bold text-foreground flex items-center gap-2">
+                    <span className="w-2 h-2 bg-brand-red rounded-full"></span>
+                    Live Preview
+                  </h2>
                   <button
                     onClick={() => setShowPreview(!showPreview)}
-                    className="lg:hidden px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                    className="lg:hidden px-6 py-2 bg-brand-red text-white font-bold rounded-sm hover:bg-red-700 transition-all"
                   >
-                    {showPreview ? 'Edit' : 'Preview'}
+                    {showPreview ? 'EDIT FORM' : 'VIEW PREVIEW'}
                   </button>
                 </div>
               </div>
-              <ResumePreview data={resumeData} />
+              <div className="rounded-xl overflow-hidden shadow-2xl border border-white/5">
+                <ResumePreview data={resumeData} />
+              </div>
             </div>
           </div>
         </div>

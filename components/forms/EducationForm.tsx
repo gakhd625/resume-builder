@@ -28,85 +28,85 @@ export default function EducationForm({ data, onChange }: EducationFormProps) {
   };
 
   return (
-    <div className="border-b pb-6">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold text-gray-800">Education</h2>
+    <div className="space-y-6">
+      <div className="flex justify-between items-center border-b border-white/10 pb-4">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 bg-brand-red rounded-sm flex items-center justify-center text-white font-bold">3</div>
+          <h2 className="text-xl font-bold text-white uppercase tracking-wider">Education</h2>
+        </div>
         <button
           onClick={addEducation}
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm"
+          className="px-4 py-2 bg-brand-red text-white rounded-sm hover:bg-red-700 text-xs font-bold transition-colors"
         >
-          Add More
+          ADD EDUCATION
         </button>
       </div>
-      <div className="space-y-6">
+
+      <div className="space-y-8">
         {data.map((education) => (
-          <div key={education.id} className="border border-gray-200 rounded-lg p-4 bg-gray-50">
-            <div className="flex justify-between items-start mb-4">
-              <h3 className="font-medium text-gray-700">Education Entry</h3>
-              <button
-                onClick={() => removeEducation(education.id)}
-                className="text-red-600 hover:text-red-800 text-sm"
-              >
-                Remove
-              </button>
-            </div>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Institution *
+          <div key={education.id} className="relative bg-[#1A1A1A] border border-white/5 rounded-sm p-6 group">
+            <button
+              onClick={() => removeEducation(education.id)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-brand-red transition-colors text-xs font-bold"
+            >
+              REMOVE
+            </button>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="md:col-span-2 space-y-2">
+                <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest">
+                  Institution
                 </label>
                 <input
                   type="text"
                   value={education.institution}
                   onChange={(e) => updateEducation(education.id, { institution: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full bg-[#111111] border border-white/10 px-4 py-3 rounded-sm text-white focus:outline-none focus:border-brand-red transition-colors placeholder:text-gray-600"
                   placeholder="University of San-Jose Recoletos"
                 />
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Degree/Program *
+              <div className="space-y-2">
+                <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest">
+                  Degree/Program
                 </label>
                 <input
                   type="text"
                   value={education.degree}
                   onChange={(e) => updateEducation(education.id, { degree: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Associate in Computer Technology Major in Software Development"
+                  className="w-full bg-[#111111] border border-white/10 px-4 py-3 rounded-sm text-white focus:outline-none focus:border-brand-red transition-colors placeholder:text-gray-600"
+                  placeholder="BS in Computer Science"
                 />
               </div>
+              
               <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Start Date
+                <div className="space-y-2">
+                  <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest">
+                    Start Year
                   </label>
                   <input
                     type="text"
                     value={education.startDate}
                     onChange={(e) => updateEducation(education.id, { startDate: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="2023"
+                    className="w-full bg-[#111111] border border-white/10 px-4 py-3 rounded-sm text-white focus:outline-none focus:border-brand-red transition-colors placeholder:text-gray-600"
+                    placeholder="2018"
                   />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    End Date
+                <div className="space-y-2">
+                  <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest">
+                    End Year
                   </label>
                   <input
                     type="text"
                     value={education.endDate}
                     onChange={(e) => updateEducation(education.id, { endDate: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="2025"
+                    className="w-full bg-[#111111] border border-white/10 px-4 py-3 rounded-sm text-white focus:outline-none focus:border-brand-red transition-colors placeholder:text-gray-600"
+                    placeholder="2022"
                   />
                 </div>
               </div>
             </div>
           </div>
         ))}
-        {data.length === 0 && (
-          <p className="text-gray-500 text-sm">No education entries yet. Click "Add More" to add one.</p>
-        )}
       </div>
     </div>
   );

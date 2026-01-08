@@ -47,39 +47,43 @@ export default function SkillsForm({ data, onChange }: SkillsFormProps) {
   };
 
   return (
-    <div className="border-b pb-6">
-      <h2 className="text-xl font-semibold text-gray-800 mb-4">Skills</h2>
-      <div className="space-y-6">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+    <div className="space-y-6">
+      <div className="flex items-center gap-3 border-b border-white/10 pb-4">
+        <div className="w-8 h-8 bg-brand-red rounded-sm flex items-center justify-center text-white font-bold">4</div>
+        <h2 className="text-xl font-bold text-white uppercase tracking-wider">Skills & Technologies</h2>
+      </div>
+
+      <div className="space-y-8">
+        <div className="space-y-4">
+          <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest">
             Programming Languages
           </label>
-          <div className="flex gap-2 mb-2">
+          <div className="flex gap-2">
             <input
               type="text"
               value={newLanguage}
               onChange={(e) => setNewLanguage(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && addLanguage()}
-              className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="e.g., Python, JavaScript"
+              className="flex-1 bg-[#1A1A1A] border border-white/10 px-4 py-3 rounded-sm text-white focus:outline-none focus:border-brand-red transition-colors placeholder:text-gray-600"
+              placeholder="e.g., Python, TypeScript"
             />
             <button
               onClick={addLanguage}
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+              className="px-6 py-3 bg-brand-red text-white font-bold rounded-sm hover:bg-red-700 transition-colors"
             >
-              Add
+              ADD
             </button>
           </div>
           <div className="flex flex-wrap gap-2">
             {data.programmingLanguages.map((lang, index) => (
               <span
                 key={index}
-                className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 text-white rounded-sm text-xs font-bold uppercase tracking-wider group"
               >
                 {lang}
                 <button
                   onClick={() => removeLanguage(index)}
-                  className="text-blue-600 hover:text-blue-800"
+                  className="text-gray-500 hover:text-brand-red transition-colors"
                 >
                   ×
                 </button>
@@ -87,36 +91,37 @@ export default function SkillsForm({ data, onChange }: SkillsFormProps) {
             ))}
           </div>
         </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Tools and Frameworks
+
+        <div className="space-y-4 pt-6 border-t border-white/5">
+          <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest">
+            Tools & Frameworks
           </label>
-          <div className="flex gap-2 mb-2">
+          <div className="flex gap-2">
             <input
               type="text"
               value={newTool}
               onChange={(e) => setNewTool(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && addTool()}
-              className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="e.g., React, Docker, AWS"
+              className="flex-1 bg-[#1A1A1A] border border-white/10 px-4 py-3 rounded-sm text-white focus:outline-none focus:border-brand-red transition-colors placeholder:text-gray-600"
+              placeholder="e.g., React, Next.js, Docker"
             />
             <button
               onClick={addTool}
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+              className="px-6 py-3 bg-brand-red text-white font-bold rounded-sm hover:bg-red-700 transition-colors"
             >
-              Add
+              ADD
             </button>
           </div>
           <div className="flex flex-wrap gap-2">
             {data.toolsAndFrameworks.map((tool, index) => (
               <span
                 key={index}
-                className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 text-white rounded-sm text-xs font-bold uppercase tracking-wider group"
               >
                 {tool}
                 <button
                   onClick={() => removeTool(index)}
-                  className="text-green-600 hover:text-green-800"
+                  className="text-gray-500 hover:text-brand-red transition-colors"
                 >
                   ×
                 </button>
