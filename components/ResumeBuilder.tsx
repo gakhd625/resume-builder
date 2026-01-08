@@ -81,7 +81,7 @@ export default function ResumeBuilder() {
       <div className="container mx-auto px-4">
         <div className="mb-8 text-center">
           <h1 className="text-4xl font-bold text-gray-800 mb-2">Resume Builder</h1>
-          <p className="text-gray-600">Create your professional resume in minutes</p>
+          <p className="text-gray-600">Create your professional resume in minutes develop by <a href="https://www.linkedin.com/in/gerlie-ann-daga-as-326554305/" className="text-blue-600 underline">Gerlie D.</a></p>
         </div>
 
         <div className="flex gap-8 flex-col lg:flex-row">
