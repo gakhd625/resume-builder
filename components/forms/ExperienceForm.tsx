@@ -82,7 +82,7 @@ export default function ExperienceForm({ data, onChange }: ExperienceFormProps) 
                   value={exp.company}
                   onChange={(e) => updateExperience(exp.id, { company: e.target.value })}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Chronostep Inc."
+                  placeholder="Google"
                 />
               </div>
               <div>
@@ -94,7 +94,7 @@ export default function ExperienceForm({ data, onChange }: ExperienceFormProps) 
                   value={exp.role}
                   onChange={(e) => updateExperience(exp.id, { role: e.target.value })}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Software Engineer Intern - Backend"
+                  placeholder="Software Engineer"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
